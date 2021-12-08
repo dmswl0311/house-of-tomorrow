@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.model.repo.DealRepo">
+
+   <!-- 매매게시판 리스트 -->
+   <select id="getDeal" resultType="deal">
+      select *
+      from deal
+      order by deal_rec desc
+   </select>
+   
+    <!-- 글번호로 검색(상세조회)  -->
+   <select id="getDealDetail" parameterType="int" resultType="deal" >
+      select * from deal
+      where deal_id=#{deal_id}
+   </select> 
+   
+   <!-- 삭제  -->
+   <delete id="deleteDeal" parameterType="int">
+      delete from deal where deal_id = #{deal_id}
+   </delete>
+   
+   <!-- 수정  -->
+   <update id="updateDeal" parameterType="deal">
+      update deal
+      set deal_title=#{deal_title},deal_content=#{deal_content},deal_img_url=#{deal_img_url},
+      deal_price=#{deal_price},deal_floor=#{deal_floor},
+      deal_apt_name=#{deal_apt_name},deal_addr=#{deal_addr},
+      deal_tag1=#{deal_tag1},deal_tag2=#{deal_tag2},deal_tag3=#{deal_tag3},deal_size=#{deal_size}
+      where deal_id=#{deal_id}
+   </update>
+   
+   <!-- 등록 -->
+   <insert id="insertDeal" parameterType="deal">
+      insert into deal (deal_title,deal_content,deal_img_url,deal_price,deal_floor,deal_apt_name,deal_addr,deal_tag1,deal_tag2,deal_tag3,deal_user_id,deal_size)
+      values(#{deal_title},#{deal_content},#{deal_img_url},#{deal_price},#{deal_floor},
+      #{deal_apt_name},#{deal_addr},#{deal_tag1},#{deal_tag2},#{deal_tag3},#{deal_user_id},#{deal_size})
+   </insert>
+   
+   <!-- 제목/내용 검색 -->
+   <select id="searchDeal" resultType="deal" parameterType="map">
+      select *
+      from deal
+      <if test="option.equals('title')">
+         where deal_title like concat('%',#{query},'%')
+      </if>
+      <if test="option.equals('content')">
+         where deal_content like concat('%',#{query},'%')
+      </if>
+   </select>
+   
+    <!-- 태그 검색 -->
+   <select id="searchtagDeal" resultType="deal" parameterType="map">
+      select *
+      from deal
+      where deal_tag1 = #{content} or deal_tag2 =#{content} or deal_tag3=#{content}   
+   </select>
+   
+   <!-- 추천수 -->
+	<update id="updateLike" parameterType="int">
+	   update deal
+	   set deal_rec = deal_rec + 1
+	   where deal_id = #{deal_id}
+	</update>
+</mapper>

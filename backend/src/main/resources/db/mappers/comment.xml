@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.model.repo.CommentRepo">
+
+	<!-- 댓글 리스트 -->
+	<select id="getComment" parameterType="int" resultType="comment">
+		select *
+		from comment
+		where comment_deal_id=#{comment_deal_id}
+	</select>
+		
+	<!-- 댓글 삭제  -->
+	<delete id="deleteComment" parameterType="int">
+		delete from comment where comment_id = #{comment_id}
+	</delete>
+	
+	<!-- 수정  -->
+	<update id="updateComment" parameterType="comment">
+		update comment
+		set comment_content=#{comment_content}
+		where comment_id=#{comment_id}
+	</update>
+	
+	<!-- 등록 -->
+	<insert id="insertComment" parameterType="comment">
+		insert into comment (comment_content, comment_user_id,comment_deal_id)
+		values(#{comment_content},#{comment_user_id},#{comment_deal_id})
+	</insert>
+	
+	</mapper>

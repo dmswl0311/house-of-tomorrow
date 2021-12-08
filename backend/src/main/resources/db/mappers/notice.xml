@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.model.repo.NoticeRepo">
+
+	<!-- 공지사항 리스트 -->
+	<select id="getNotice" resultType="Notice">
+		select *
+		from notice
+	</select>
+	
+    <!-- 글번호로 검색(상세조회)  -->
+	<select id="getNoticeDetail" parameterType="int" resultType="notice" >
+		select * from notice
+		where notice_id=#{notice_id}
+	</select> 
+	
+	<!-- 삭제  -->
+	<delete id="deleteNotice" parameterType="int">
+		delete from notice where notice_id = #{notice_id}
+	</delete>
+	
+	<!-- 수정  -->
+	<update id="updateNotice" parameterType="notice">
+		update notice
+		set notice_title=#{notice_title},notice_content=#{notice_content},notice_img_url=#{notice_img_url}
+		where notice_id=#{notice_id}
+	</update>
+	
+	<!-- 등록 -->
+	<insert id="insertNotice" parameterType="notice">
+		insert into notice (notice_title, notice_content,notice_img_url,notice_user_id)
+		values(#{notice_title},#{notice_content},#{notice_img_url},#{notice_user_id})
+	</insert>
+	
+	<!-- 제목/내용 검색 -->
+	<select id="searchNotice" resultType="Notice" parameterType="map">
+		select *
+		from notice
+		<if test="option.equals('title')">
+			where notice_title like concat('%',#{query},'%')
+		</if>
+		<if test="option.equals('content')">
+			where notice_content like concat('%',#{query},'%')
+		</if>
+	</select>
+
+</mapper>

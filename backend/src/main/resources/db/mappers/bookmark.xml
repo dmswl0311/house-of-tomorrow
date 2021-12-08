@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.happyhouse.model.repo.BookmarkRepo">
+
+	<!-- 찜목록 리스트 -->
+	<select id="getBookmark" resultType="bookmark">
+		select *
+		from bookmark
+		where bookmark_user_id=#{bookmark_user_id}
+	</select>
+	
+    <!-- 찜목록 상세조회  -->
+	<select id="getBookmarkDetail" parameterType="int" resultType="bookmark" >
+		select * from bookmark
+		where bookmark_id=#{bookmark_id}
+	</select> 
+	
+	<!-- 찜목록 있는지 체크 -->
+	<select id="BookmarkCheck" parameterType="string" resultType="int">
+		select count(*) from bookmark
+		where bookmark_apt_lat=#{bookmark_apt_lat} and bookmark_apt_lng=#{bookmark_apt_lng}
+	</select>
+	
+	<!-- 찜목록 삭제  -->
+	<delete id="deleteBookmark" parameterType="int">
+		delete from bookmark where bookmark_id = #{bookmark_id}
+	</delete>
+	
+		<!-- 등록 -->
+	<insert id="insertBookmark" parameterType="bookmark">
+		insert into bookmark (bookmark_user_id, bookmark_apt_name,bookmark_apt_dongname,
+		bookmark_apt_floor,bookmark_apt_price,bookmark_apt_lat,bookmark_apt_lng)
+		values(#{bookmark_user_id},#{bookmark_apt_name},#{bookmark_apt_dongname},#{bookmark_apt_floor},
+		#{bookmark_apt_price},#{bookmark_apt_lat},#{bookmark_apt_lng})
+	</insert>
+
+</mapper>
