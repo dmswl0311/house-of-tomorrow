@@ -4,15 +4,34 @@
 
 ![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=내일의_집&fontAlign=70&fontAlignY=35&color=gradient)
 
+ 
+ 
+ 
+</div>
+  
  ## 서비스 소개 및 주제
 ![프로젝트주제](https://github.com/sojin0706/happyhouse/blob/main/photo/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%A3%BC%EC%A0%9C.png?raw=true)
 
- ## 팀원 소개 및 역할
+## 팀원 소개 및 역할  
+ 
 ![팀원소개](https://github.com/sojin0706/happyhouse/blob/main/photo/%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C.png?raw=true)
 
+## 개발 기간
+ 2021.11.19 - 2021.11.25
+ 
 ##  사용 기술 스택
 
 <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/> <img alt="SPRING BOOT" src="https://img.shields.io/badge/springboot%20-%6DB33F.svg?&style=for-the-badge&logo=springboot&logoColor=white"/> <img alt="Vue.js" src="https://img.shields.io/badge/vue.js%20-%2335495e.svg?&style=for-the-badge&logo=vue.js&logoColor=%234FC08D"/> <img alt="MySQL" src="https://img.shields.io/badge/mysql-%2300f.svg?&style=for-the-badge&logo=mysql&logoColor=white"/> <img alt="HTML5" src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img alt="CSS3" src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/><br />
+
+## 전체 기능
+1. 아파트 검색
+2. 내 집 마련
+3. 집 추천
+4. 매매 게시판 (+ 좋아요, 댓글)
+5. 찜 기능
+6. 공지사항
+7. 로그인 / 로그아웃 / 회원가입
+8. 내정보 보기
 
 ## 주요 기능
 ![주요개발기능](https://github.com/sojin0706/happyhouse/blob/main/photo/%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84.png?raw=true)
@@ -62,4 +81,3 @@ npm install --save jwt-decode
 npm i vuex-persistedstate
 npm install ckeditor4-vue
  ```
-  </div>
