@@ -15,7 +15,9 @@
 ![프로젝트주제](https://github.com/sojin0706/happyhouse/blob/main/photo/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%A3%BC%EC%A0%9C.png?raw=true)
 
 ## 팀원 소개 및 역할  
- 
+-[@sojin0706 ](https://github.com/sojin0706 )  <br>
+-[@dmswl0311 ](https://github.com/dmswl0311 )  <br>
+
 ![팀원소개](https://github.com/sojin0706/happyhouse/blob/main/photo/%ED%8C%80%EC%9B%90%EC%86%8C%EA%B0%9C.png?raw=true)
 
 ## 개발 기간
